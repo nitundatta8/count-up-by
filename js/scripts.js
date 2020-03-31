@@ -2,24 +2,37 @@
 $(document).ready(function(){
   $("#calculate").click(function(event){
      console.log("value");
-     var countBy = parseInt($("#countBy").val());
-     var countTo = parseInt($("#countTo").val());
-     isNum
-     
-      console.log(calculate(countBy,countTo));
-    
-    
+     var countBy = $("#countBy").val();
+     var countTo = $("#countTo").val();
+     if(!isNumber(countBy)){alert("Please enter a valid number.")
+      };
+     if(!isNumber(countTo)){alert("Please enter a valid number.")};
+     var countIn = parseInt(countBy);
+     var countOut = parseInt(countTo);
+     if(countIn < countOut){
+      console.log(calculate(countIn,countOut));
+     }
+     else{
+      alert("Count To should be bigger than Count By");
+     }
     event.preventDefault();
   });
 });
 
+ function isNumber(number){
+   if(number !== '' && !isNaN(number) && number>0 ){
+     return true;
+   }
+   else{return false}
+ } 
+
+ 
 
 function calculate(countBy,countTo){
 var result = "";
   for(var i=1;i<= countTo;i++){
     if((i % countBy) === 0){
       result += " " + i;
-      console.log("result")
     }
   }
   return result;
