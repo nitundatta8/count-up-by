@@ -11,6 +11,8 @@ $(document).ready(function(){
      var countOut = parseInt(countTo);
      if(countIn < countOut){
       console.log(calculate(countIn,countOut));
+      $(".output").show();
+      $(".output").text(" Result is :" +calculate(countIn,countOut))
      }
      else{
       alert("Count To should be bigger than Count By");
